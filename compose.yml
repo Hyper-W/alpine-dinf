@@ -1,0 +1,12 @@
+services:
+  dinf:
+    build:
+      context: .
+      args:
+        - FinchVersionMajor=${FinchVersionMajor:-1} # Finch Major Version. Exclusive: FinchVersion. Dependence: FinchVersionMinor,FinchVersionPatch.
+        - FinchVersionMinor=${FinchVersionMinor:-13} # Finch Minor Version. Exclusive: FinchVersion. Dependence: FinchVersionMajor,FinchVersionPatch.
+        - FinchVersionPatch=${FinchVersionPatch:-0} # Finch Patch Version. Exclusive: FinchVersion. Dependence: FinchVersionMajor,FinchVersionMinor.
+        # - FinchVersion=v${FinchVersionMajor:-1}.${FinchVersionMinor:-13}.${FinchVersionPatch:-0} # Exclusive: FinchVersionMajor,FinchVersionMinor,FinchVersionPatch.
+    container_name: dinf
+    image: ghcr.io/hyper-w/dinf:alpine
+    privileged: true
